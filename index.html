@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartMart — Store Manager</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><div class="brand-mark">S</div><div><b>SmartMart</b><span>Store Intelligence</span></div></div>
+      <nav>
+        <a class="nav-link active" href="#overview" data-section="overview"><span>⌂</span> Overview</a>
+        <a class="nav-link" href="#shopper" data-section="shopper"><span>◉</span> Shopper Analytics</a>
+        <a class="nav-link" href="#footfall" data-section="footfall"><span>⌁</span> Footfall Intelligence</a>
+        <a class="nav-link" href="#inventory" data-section="inventory"><span>▣</span> Smart Inventory</a>
+        <a class="nav-link" href="#queue" data-section="queue"><span>☷</span> Queue Management</a>
+        <a class="nav-link" href="#staff" data-section="staff"><span>♙</span> Staff Management</a>
+        <a class="nav-link" href="#reports" data-section="reports"><span>▤</span> Reports</a>
+        <a class="nav-link" href="#ai" data-section="ai"><span>✦</span> AI Recommendations</a>
+      </nav>
+      <div class="sidebar-bottom"><div class="live-dot"></div><span>AI systems operational</span></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="menu" id="menu">☰</button>
+        <div class="location"><span class="pin">●</span><div><b>Downtown Store</b><small>Live store operations</small></div></div>
+        <div class="top-actions"><button class="icon-btn" title="Notifications">♢<i></i></button><div class="avatar">SM</div><div class="user"><b>Store Manager</b><small>Administrator</small></div></div>
+      </header>
+
+      <div class="content">
+        <section class="page-section active" id="overview">
+          <div class="hero"><div><p class="eyebrow">MONDAY, 14 SEPTEMBER 2026 · LIVE</p><h1>Good evening, Manager.</h1><p>Here’s what’s happening across your store right now.</p></div><button class="primary" onclick="toast('Dashboard refreshed')">↻ Refresh data</button></div>
+          <div class="stats">
+            <div class="stat"><span>Visitors today</span><strong>1,284</strong><em class="up">↑ 12.8%</em><small>vs. last Monday</small></div>
+            <div class="stat"><span>Avg. dwell time</span><strong>18m 42s</strong><em class="up">↑ 6.4%</em><small>customer engagement</small></div>
+            <div class="stat"><span>Queue wait</span><strong>04m 18s</strong><em class="down">↓ 14.2%</em><small>better than target</small></div>
+            <div class="stat"><span>Low-stock items</span><strong>17</strong><em class="warn">Needs attention</em><small>3 critical items</small></div>
+          </div>
+          <div class="grid two">
+            <div class="card chart-card"><div class="card-head"><div><h3>Store traffic</h3><p>Visitors by hour</p></div><select><option>Today</option><option>Yesterday</option></select></div><canvas id="trafficChart"></canvas></div>
+            <div class="card"><div class="card-head"><div><h3>AI priority alerts</h3><p>Actions recommended now</p></div><a href="#ai">View all →</a></div>
+              <div class="alert-list">
+                <div class="alert critical"><b>Critical stock</b><span>Wireless earbuds — 6 units remaining</span><button onclick="toast('Restock request created')">Restock</button></div>
+                <div class="alert"><b>Queue rising</b><span>Checkout 2 has 8 shoppers waiting</span><button onclick="toast('Staff member requested')">Assign staff</button></div>
+                <div class="alert"><b>High dwell</b><span>Beauty zone dwell time is 31% above normal</span><button onclick="toast('Promotion insight opened')">Inspect</button></div>
+              </div>
+            </div>
+          </div>
+          <div class="card quick"><div><h3>Quick actions</h3><p>Jump into the areas that need attention.</p></div><div class="quick-grid"><a href="#inventory">Check inventory <span>→</span></a><a href="#queue">Manage queues <span>→</span></a><a href="#staff">View staff <span>→</span></a><a href="#reports">Generate report <span>→</span></a></div></div>
+        </section>
+
+        <section class="page-section" id="shopper">
+          <div class="section-title"><div><p class="eyebrow">CUSTOMER BEHAVIOUR</p><h2>Shopper Analytics</h2><p>Understand movement, engagement and dwell time across store zones.</p></div><button class="primary">Export CSV</button></div>
+          <div class="stats"><div class="stat"><span>Active shoppers</span><strong>146</strong><em class="up">Live</em></div><div class="stat"><span>Avg. dwell</span><strong>18m 42s</strong><em class="up">↑ 6.4%</em></div><div class="stat"><span>Returning visitors</span><strong>34.7%</strong><em class="up">↑ 3.1%</em></div><div class="stat"><span>Peak zone</span><strong>Electronics</strong><em class="warn">High traffic</em></div></div>
+          <div class="grid two"><div class="card chart-card"><div class="card-head"><div><h3>Dwell time by zone</h3><p>Average minutes</p></div></div><canvas id="dwellChart"></canvas></div><div class="card"><div class="card-head"><div><h3>Zone activity</h3><p>Live occupancy</p></div></div><div class="zone-list"><div><span>Electronics</span><b>38 shoppers</b><div class="bar"><i style="width:82%"></i></div></div><div><span>Fashion</span><b>27 shoppers</b><div class="bar"><i style="width:61%"></i></div></div><div><span>Beauty</span><b>21 shoppers</b><div class="bar"><i style="width:48%"></i></div></div><div><span>Grocery</span><b>17 shoppers</b><div class="bar"><i style="width:38%"></i></div></div></div></div></div>
+        </section>
+
+        <section class="page-section" id="footfall">
+          <div class="section-title"><div><p class="eyebrow">TRAFFIC INTELLIGENCE</p><h2>Footfall Intelligence</h2><p>Track traffic patterns by time, day and store zone.</p></div><button class="secondary">7 days ▾</button></div>
+          <div class="card"><div class="card-head"><div><h3>Weekly footfall trend</h3><p>Visitors across all entrances</p></div><div class="legend"><i></i> Visitors</div></div><canvas id="footfallChart"></canvas></div>
+          <div class="grid three cards-row"><div class="metric-card"><span>Peak hour</span><strong>6:00 PM</strong><small>214 visitors</small></div><div class="metric-card"><span>Busiest day</span><strong>Saturday</strong><small>8,942 visitors</small></div><div class="metric-card"><span>Conversion opportunity</span><strong>Zone B</strong><small>High traffic · low dwell</small></div></div>
+          <div class="card heat"><div class="card-head"><div><h3>Store traffic map</h3><p>Illustrative live zone heatmap</p></div></div><div class="store-map"><div class="map-zone z1">Entrance<br><b>42</b></div><div class="map-zone z2">Fashion<br><b>27</b></div><div class="map-zone z3">Electronics<br><b>38</b></div><div class="map-zone z4">Beauty<br><b>21</b></div><div class="map-zone z5">Checkout<br><b>18</b></div></div></div>
+        </section>
+
+        <section class="page-section" id="inventory">
+          <div class="section-title"><div><p class="eyebrow">STOCK VISIBILITY</p><h2>Smart Inventory Monitoring</h2><p>Detect low-stock and empty-shelf conditions before they impact sales.</p></div><button class="primary" onclick="toast('Inventory scan started')">Run shelf scan</button></div>
+          <div class="stats"><div class="stat"><span>Items monitored</span><strong>4,820</strong><em class="up">98.6% visible</em></div><div class="stat"><span>Low stock</span><strong>17</strong><em class="warn">Attention</em></div><div class="stat"><span>Out of stock</span><strong>3</strong><em class="down">Critical</em></div><div class="stat"><span>Restock accuracy</span><strong>94.2%</strong><em class="up">↑ 2.8%</em></div></div>
+          <div class="card"><div class="card-head"><div><h3>Stock alerts</h3><p>Prioritized by AI impact score</p></div><input class="search" placeholder="Search product..."></div><div class="table-wrap"><table><thead><tr><th>Product</th><th>Zone</th><th>Stock</th><th>Status</th><th>Impact</th><th>Action</th></tr></thead><tbody>
+          <tr><td>Wireless Earbuds Pro</td><td>Electronics</td><td>6 / 40</td><td><span class="pill red">Critical</span></td><td>High</td><td><button class="table-btn" onclick="toast('Restock order created')">Restock</button></td></tr>
+          <tr><td>Hydrating Face Serum</td><td>Beauty</td><td>12 / 50</td><td><span class="pill orange">Low</span></td><td>Medium</td><td><button class="table-btn" onclick="toast('Restock order created')">Restock</button></td></tr>
+          <tr><td>Denim Jacket</td><td>Fashion</td><td>0 / 25</td><td><span class="pill red">Out of stock</span></td><td>High</td><td><button class="table-btn" onclick="toast('Supplier notified')">Notify</button></td></tr>
+          <tr><td>Smart Water Bottle</td><td>Electronics</td><td>18 / 60</td><td><span class="pill orange">Low</span></td><td>Medium</td><td><button class="table-btn" onclick="toast('Restock order created')">Restock</button></td></tr>
+          </tbody></table></div></div>
+        </section>
+
+        <section class="page-section" id="queue">
+          <div class="section-title"><div><p class="eyebrow">CHECKOUT OPERATIONS</p><h2>Intelligent Queue Management</h2><p>Reduce waiting time with live queue visibility and staffing recommendations.</p></div><button class="primary" onclick="toast('Queue prediction updated')">Update prediction</button></div>
+          <div class="grid three"><div class="queue-card good"><span>Checkout 01</span><strong>4</strong><small>shoppers waiting</small><b>02m 10s avg wait</b></div><div class="queue-card danger"><span>Checkout 02</span><strong>8</strong><small>shoppers waiting</small><b>07m 42s avg wait</b><button onclick="toast('Staff assigned to Checkout 02')">Open counter</button></div><div class="queue-card good"><span>Checkout 03</span><strong>3</strong><small>shoppers waiting</small><b>01m 48s avg wait</b></div></div>
+          <div class="grid two"><div class="card chart-card"><div class="card-head"><div><h3>Average wait time</h3><p>Today vs. target</p></div></div><canvas id="queueChart"></canvas></div><div class="card"><div class="card-head"><div><h3>AI staffing recommendation</h3><p>Based on current and predicted traffic</p></div></div><div class="recommend"><div class="ai-icon">✦</div><div><b>Open Checkout 04 at 6:30 PM</b><p>Predicted queue will exceed 10 shoppers in 24 minutes. Assign one floating staff member.</p><button class="primary" onclick="toast('Recommendation applied')">Apply recommendation</button></div></div></div></div>
+        </section>
+
+        <section class="page-section" id="staff">
+          <div class="section-title"><div><p class="eyebrow">TEAM OPERATIONS</p><h2>Staff Management</h2><p>Monitor staffing, assignments and operational workload.</p></div><button class="primary" onclick="toast('Staff member form opened')">+ Add staff</button></div>
+          <div class="stats"><div class="stat"><span>On shift</span><strong>24</strong><em class="up">92% staffed</em></div><div class="stat"><span>At checkout</span><strong>7</strong><em>3 counters active</em></div><div class="stat"><span>Floor staff</span><strong>13</strong><em>4 zones covered</em></div><div class="stat"><span>Break</span><strong>4</strong><em class="warn">Staggered</em></div></div>
+          <div class="card"><div class="card-head"><div><h3>Today's team</h3><p>Live staff status</p></div><input class="search" placeholder="Search staff..."></div><div class="staff-grid">
+            <div class="staff-item"><div class="person">AK</div><div><b>Ananya Kumar</b><small>Checkout Lead</small></div><span class="online">On shift</span></div><div class="staff-item"><div class="person">RS</div><div><b>Rahul Shah</b><small>Floor Associate</small></div><span class="online">On shift</span></div><div class="staff-item"><div class="person">PM</div><div><b>Priya Menon</b><small>Inventory</small></div><span class="break">Break</span></div><div class="staff-item"><div class="person">VK</div><div><b>Vikram Kumar</b><small>Floor Associate</small></div><span class="online">On shift</span></div><div class="staff-item"><div class="person">SN</div><div><b>Sneha Nair</b><small>Customer Service</small></div><span class="online">On shift</span></div><div class="staff-item"><div class="person">JD</div><div><b>John David</b><small>Checkout</small></div><span class="offline">Off shift</span></div>
+          </div></div>
+        </section>
+
+        <section class="page-section" id="reports">
+          <div class="section-title"><div><p class="eyebrow">BUSINESS INSIGHTS</p><h2>Reports</h2><p>Generate operational summaries for managers and leadership.</p></div><button class="primary" onclick="toast('Report generated successfully')">Generate report</button></div>
+          <div class="report-grid"><div class="report-card"><span>DAILY</span><h3>Store Performance</h3><p>Traffic, queues, inventory and staff performance for today.</p><button onclick="toast('Daily report downloaded')">Download PDF →</button></div><div class="report-card"><span>WEEKLY</span><h3>Footfall & Shopper Trends</h3><p>Compare traffic, dwell time and zone engagement across 7 days.</p><button onclick="toast('Weekly report downloaded')">Download PDF →</button></div><div class="report-card"><span>MONTHLY</span><h3>Operations Review</h3><p>Executive summary of KPIs, alerts and AI recommendations.</p><button onclick="toast('Monthly report downloaded')">Download PDF →</button></div></div>
+          <div class="card chart-card"><div class="card-head"><div><h3>Key performance indicators</h3><p>Last 30 days</p></div></div><canvas id="reportChart"></canvas></div>
+        </section>
+
+        <section class="page-section" id="ai">
+          <div class="section-title"><div><p class="eyebrow">DECISION INTELLIGENCE</p><h2>AI-Driven Recommendations</h2><p>Turn live store data into clear, actionable decisions.</p></div><span class="ai-badge">✦ AI ACTIVE</span></div>
+          <div class="ai-summary"><div class="ai-orb">✦</div><div><h3>RetailIQ Intelligence Engine</h3><p>Analyzing shopper movement, inventory, queues and staffing in real time.</p></div><span>98.4% confidence</span></div>
+          <div class="recommend-grid"><div class="recommend-card high"><span>HIGH IMPACT</span><h3>Open an additional checkout</h3><p>Queue 02 is trending upward. Opening Checkout 04 before 6:30 PM is expected to reduce average wait by <b>42%</b>.</p><button onclick="toast('Recommendation applied')">Apply action →</button></div><div class="recommend-card medium"><span>SALES OPPORTUNITY</span><h3>Review Electronics promotion</h3><p>Electronics has the highest footfall but dwell-to-purchase conversion is below the store benchmark.</p><button onclick="toast('Insight added to action plan')">Add to action plan →</button></div><div class="recommend-card low"><span>INVENTORY</span><h3>Restock wireless earbuds</h3><p>Current stock is projected to reach zero in approximately <b>4 hours</b> at the current sales velocity.</p><button onclick="toast('Restock action created')">Create restock →</button></div></div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
